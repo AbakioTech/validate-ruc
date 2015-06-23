@@ -1,0 +1,28 @@
+{
+  "name": "validate-ruc",
+  "version": "0.0.1",
+  "description": "Ruc validation for peruvian business",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "ruc",
+    "sunat",
+    "peru"
+  ],
+  "author": "Eduardo Peredo",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^3.9.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eperedo/validate-ruc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eperedo/validate-ruc/issues"
+  },
+  "homepage": "https://github.com/eperedo/validate-ruc#readme"
+}
