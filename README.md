@@ -8,7 +8,7 @@ Allow validate ruc for peruvian business
 npm install validate-ruc --save
 ```
 
-# USAGE
+### USAGE
 ```
 var ruc = require('validate-ruc');
 
