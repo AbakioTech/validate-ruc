@@ -63,12 +63,13 @@ function multiplyDigitsAndSum (tenDigits) {
 
 	var numbers = _.zip(tenDigits, multiply);
 
-	return _.sum(numbers, function (number) {		
+	var s =  _.sum(numbers, function (number) {		
 
 		return number[0] * number[1];
 
-	});	
+	});
 
+	return s;
 }
 
 function divideAndTakeInteger (totalSumRucDigits) {
@@ -80,6 +81,18 @@ function divideAndTakeInteger (totalSumRucDigits) {
 function calculateRuc (totalSumRucDigits, divideNumber, lastRucDigit) {
 
 	var result = 11 - (totalSumRucDigits - divideNumber * 11);
+
+	if (result === 10) {
+
+		result = 0;
+
+	}
+
+	if (result === 11) {
+
+		result = 1
+
+	}
 
 	return result === lastRucDigit;
 
