@@ -21,9 +21,7 @@
 
 	var allowedStartDigits = ['10', '15', '17', '20'];
 
-	function validateRuc (ruc) {
-
-		var errorMessage = 'Ruc Inválido';
+	function validateRuc (ruc) {		
 
 		if (validateTwoDigits(ruc)) {
 
