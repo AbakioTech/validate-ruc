@@ -2,24 +2,24 @@
 
 Allow validate ruc for peruvian business
 
-### Installation
+### Installation using npm or bower
 
 ```
 npm install validate-ruc --save
+
+bower install validate-ruc --save
+
 ```
 
-### Usage (NodeJs)
+### Usage from nodejs or browser
 ```
 var ruc = require('validate-ruc');
-```
 
-### Usage (Browser)
-```
 <script src="index.js"></script>
 ```
 
 ```
-ruc.validateRuc('20292005483');
+var isValid = ruc.validateRuc('20292005483');
 
 //true
 

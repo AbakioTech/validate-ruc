@@ -1,0 +1,30 @@
+{
+  "name": "validate-ruc",
+  "main": "ruc.js",
+  "version": "0.0.3",
+  "homepage": "https://github.com/eperedo/validate-ruc",
+  "authors": [
+    "Eduardo Peredo <eduardo.peredo@abakio.com>"
+  ],
+  "description": "Ruc validation for peruvian business",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "ruc",
+    "sunat",
+    "peru"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~3.9.3"
+  }
+}
