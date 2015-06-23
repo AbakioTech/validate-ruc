@@ -100,7 +100,7 @@
 
 		if (result === 11) {
 
-			result = 1
+			result = 1;
 
 		}
 

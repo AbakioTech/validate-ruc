@@ -15,7 +15,7 @@ bower install validate-ruc --save
 ```
 var ruc = require('validate-ruc');
 
-<script src="index.js"></script>
+<script src="ruc.js"></script>
 ```
 
 ```
