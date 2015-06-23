@@ -1,105 +1,120 @@
-var _ = require('lodash');
+(function (root) {
+	
+	'use strict';
 
-var multiply = [5, 4, 3, 2, 7, 6, 5, 4 ,3 , 2];
+	var isCommonJS = typeof module !== 'undefined' && module.exports;
+	var _ = isCommonJS ? require('lodash') : root._;
+	var ruc = {validateRuc: validateRuc};
 
-var allowedStartDigits = ['10', '15', '17', '20'];
-
-module.exports = {
-
-	validateRuc: validateRuc
-
-};
-
-function validateRuc (ruc) {
-
-	var errorMessage = 'Ruc Inválido';
-
-	if (validateTwoDigits(ruc)) {
-
-		var tenDigits = getFirstTenDigits(ruc);
-
-		var resultSum = multiplyDigitsAndSum(tenDigits);
-
-		var resultDivision = divideAndTakeInteger(resultSum);
-
-		var processRuc = calculateRuc(resultSum, resultDivision, getLastDigit(ruc));
-
-		return processRuc;
+	if (isCommonJS) {
+		
+		module.exports = ruc;
 
 	}
 	else {
 
-		return false;
+		root.ruc = ruc;
 
 	}
 
-}
+	var multiply = [5, 4, 3, 2, 7, 6, 5, 4 ,3 , 2];
 
-function validateTwoDigits (ruc) {
+	var allowedStartDigits = ['10', '15', '17', '20'];
 
-	var twoDigits = ruc.substring(0, 2);
+	function validateRuc (ruc) {
 
-	return allowedStartDigits.indexOf(twoDigits) > -1;
+		var errorMessage = 'Ruc Inválido';
 
-}
+		if (validateTwoDigits(ruc)) {
 
-function getFirstTenDigits (ruc) {
+			var tenDigits = getFirstTenDigits(ruc);
 
-	var tenDigits = [];
+			var resultSum = multiplyDigitsAndSum(tenDigits);
 
-	for (var i = 0; i < 10; i++) {
+			var resultDivision = divideAndTakeInteger(resultSum);
 
-		var currentDigit = ruc.substring(i, i + 1);
+			var processRuc = calculateRuc(resultSum, resultDivision, getLastDigit(ruc));
 
-		tenDigits.push(parseInt(currentDigit));
+			return processRuc;
 
-	}
+		}
+		else {
 
-	return tenDigits;
+			return false;
 
-}
-
-function multiplyDigitsAndSum (tenDigits) {	
-
-	var numbers = _.zip(tenDigits, multiply);
-
-	var s =  _.sum(numbers, function (number) {		
-
-		return number[0] * number[1];
-
-	});
-
-	return s;
-}
-
-function divideAndTakeInteger (totalSumRucDigits) {
-
-	return parseInt(totalSumRucDigits / 11);
-
-}
-
-function calculateRuc (totalSumRucDigits, divideNumber, lastRucDigit) {
-
-	var result = 11 - (totalSumRucDigits - divideNumber * 11);
-
-	if (result === 10) {
-
-		result = 0;
+		}
 
 	}
 
-	if (result === 11) {
+	function validateTwoDigits (ruc) {
 
-		result = 1
+		var twoDigits = ruc.substring(0, 2);
+
+		return allowedStartDigits.indexOf(twoDigits) > -1;
 
 	}
 
-	return result === lastRucDigit;
+	function getFirstTenDigits (ruc) {
 
-}
+		var tenDigits = [];
 
-function getLastDigit (ruc) {
+		for (var i = 0; i < 10; i++) {
 
-	return parseInt(ruc.substring(ruc.length, ruc.length - 1));
+			var currentDigit = ruc.substring(i, i + 1);
 
-}
+			tenDigits.push(parseInt(currentDigit));
+
+		}
+
+		return tenDigits;
+
+	}
+
+	function multiplyDigitsAndSum (tenDigits) {	
+
+		var numbers = _.zip(tenDigits, multiply);
+
+		var s =  _.sum(numbers, function (number) {		
+
+			return number[0] * number[1];
+
+		});
+
+		return s;
+
+	}
+
+	function divideAndTakeInteger (totalSumRucDigits) {
+
+		return parseInt(totalSumRucDigits / 11);
+
+	}
+
+	function calculateRuc (totalSumRucDigits, divideNumber, lastRucDigit) {
+
+		var result = 11 - (totalSumRucDigits - divideNumber * 11);
+
+		if (result === 10) {
+
+			result = 0;
+
+		}
+
+		if (result === 11) {
+
+			result = 1
+
+		}
+
+		return result === lastRucDigit;
+
+	}
+
+	function getLastDigit (ruc) {
+
+		return parseInt(ruc.substring(ruc.length, ruc.length - 1));
+
+	}	
+
+
+})(this);
