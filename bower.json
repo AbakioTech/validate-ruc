@@ -1,7 +1,7 @@
 {
   "name": "validate-ruc",
   "main": "ruc.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/eperedo/validate-ruc",
   "authors": [
     "Eduardo Peredo <eduardo.peredo@abakio.com>"
