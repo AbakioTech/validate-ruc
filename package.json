@@ -1,6 +1,6 @@
 {
   "name": "validate-ruc",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Ruc validation for peruvian business",
   "main": "ruc.js",
   "scripts": {
