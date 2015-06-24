@@ -2,8 +2,7 @@
 	
 	'use strict';
 
-	var isCommonJS = typeof module !== 'undefined' && module.exports;
-	var _ = isCommonJS ? require('lodash') : root._;
+	var isCommonJS = typeof module !== 'undefined' && module.exports;	
 	var ruc = {validateRuc: validateRuc};
 
 	if (isCommonJS) {
@@ -21,7 +20,13 @@
 
 	var allowedStartDigits = ['10', '15', '17', '20'];
 
-	function validateRuc (ruc) {		
+	function validateRuc (ruc) {
+
+		if (!ruc || typeof ruc !== 'string' || ruc.length < 11) {
+
+			return false;
+
+		}
 
 		if (validateTwoDigits(ruc)) {
 
@@ -60,25 +65,25 @@
 
 			var currentDigit = ruc.substring(i, i + 1);
 
-			tenDigits.push(parseInt(currentDigit));
+			tenDigits.push(currentDigit);
 
 		}
 
-		return tenDigits;
+		return tenDigits.map(Number);
 
 	}
 
 	function multiplyDigitsAndSum (tenDigits) {	
 
-		var numbers = _.zip(tenDigits, multiply);
+		var numbers = zip([tenDigits, multiply]);
 
-		var s =  _.sum(numbers, function (number) {		
+		var sum = numbers.reduce(function (previousValue, actualValue) {
 
-			return number[0] * number[1];
+			return previousValue + (actualValue[0] * actualValue[1]);
 
-		});
+		}, 0);
 
-		return s;
+		return sum;
 
 	}
 
@@ -112,7 +117,13 @@
 
 		return parseInt(ruc.substring(ruc.length, ruc.length - 1));
 
-	}	
+	}
+
+	function zip(arrays) {
+    return arrays[0].map(function(_ , i){
+        return arrays.map(function(array){return array[i]})
+    });
+	}
 
 
 })(this);
