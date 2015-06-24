@@ -4,7 +4,7 @@
   "description": "Ruc validation for peruvian business",
   "main": "ruc.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha"
   },
   "keywords": [
     "ruc",
@@ -13,10 +13,10 @@
   ],
   "author": "Eduardo Peredo",
   "license": "MIT",
-  "dependencies": {
-    "lodash": "^3.9.3"
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^2.2.5"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+git@github.com:AbakioTech/validate-ruc.git"
